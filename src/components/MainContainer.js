@@ -9,15 +9,17 @@ import References from './References'
 
 export default class MainContainer extends Component {
   state = {
-    articles: []
+    articles: [],
   }
 
-  //componentdidmount with axios
-    //axios.get('localhost/rubyproject')
-      //.then(res => {
-        //const articles = res.data;
-        //this.setState({ articles })
-      //})
+  componentDidMount () {
+    fetch("http://localhost:3000/articles") 
+      .then((resp) => resp.json())
+      .then(allArticles => {
+        this.setState({articles: allArticles})
+      })
+      
+    }
 
   render () {
     return (
@@ -29,7 +31,7 @@ export default class MainContainer extends Component {
             <Route
               exact
               path='/'
-              render={props => <MainPageImage {...props} />}
+              render={props => <MainPageImage article={this.state.articles} {...props} />}
             />
             <Route
               exact

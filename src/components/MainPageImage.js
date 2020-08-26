@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 
 import Article from './Article'
 
-const MainPageImage = () => {
+const MainPageImage = ({ article }) => {
   const [articleButton, setArticleButton] = useState(false)
 
   const onClick = () => setArticleButton(true)
@@ -15,12 +15,20 @@ const MainPageImage = () => {
         This is web application allows Company Director William Jones to post
         articles to this board for all in the company to read.
       </p>
-      <Button variant='contained' color='default' onClick={onClick}>
-        {articleButton ? <Article /> : 'Create New Article'}
-      </Button>
+
+      {!articleButton ? (
+        <Button variant='contained' color='default' onClick={onClick}>
+          Create New Article
+        </Button>
+      ) : (
+        <Article />
+      )}
+
       <TextField label='Search an Article...' variant='outlined' />
       <div>
-        <h3>article cards component</h3>
+        <ul>{article.map((eachArticle) =>  (
+            <li key={eachArticle.id}>{eachArticle.title}</li>
+        ))}</ul>
       </div>
     </div>
   )

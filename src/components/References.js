@@ -4,11 +4,11 @@ const References = () => {
     return (
         <div className="web-links">
             <ul>
-                <li>bbc</li>
-                <li>bbc</li>
-                <li>bbc</li>
-                <li>bbc</li>
-                <li>bbc</li>
+                <li>bbcnews.co.uk</li>
+                <li>msnbcnews.com</li>
+                <li>theguardian.co.uk</li>
+                <li>thetimes.co.uk</li>
+                <li>cnn.com</li>
             </ul>
         </div>
     )

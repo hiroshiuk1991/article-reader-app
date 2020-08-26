@@ -14,7 +14,6 @@ export default class App extends React.Component {
           path='/'
           component={props => <MainContainer {...props} />}
         />
-
       </Router>
     )
   }
