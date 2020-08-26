@@ -1,51 +1,60 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-// import axios from 'axios';
 
 import AboutUs from './AboutUs'
 import NavBar from './NavBar'
 import MainPageImage from './MainPageImage'
 import References from './References'
 
+const articlesUrl = 'http://localhost:3000/articles'
+
 export default class MainContainer extends Component {
   state = {
     articles: [],
-    searchTerm: ""
+    searchTerm: '',
+    title: '',
+    body: '',
+    curTime: new Date().toLocaleString()
   }
 
   componentDidMount () {
-    fetch("http://localhost:3000/articles") 
-      .then((resp) => resp.json())
+    fetch(articlesUrl)
+      .then(resp => resp.json())
       .then(allArticles => {
-        this.setState({articles: allArticles})
+        this.setState({ articles: allArticles })
       })
-    }
+  }
 
-  // updateSearchTerm = event => {
-  //   this.setState({
-  //     searchTerm: event.target.value
-  //   });
-  // };
-
-
+  // createArticle = article => {
+  //   API.post(articlesUrl, {
+  //     article: {
+  //       title: article.title,
+  //       body: article.body,
+  //       date: this.state.curTime
+  //     }
+  //   })
+  // }
 
   render () {
-    // let filteredArticles = this.props.articles.filter(
-    //   (article) => {
-    //     return article.title.indexOf(this.state.search) !== -1
-    //   }
-    // ) 
+    const { articles, title, body } = this.state
 
     return (
       <BrowserRouter>
         <NavBar />
-        <h1 className="article-title">ABC Company Articles</h1>
+        <h1 className='article-title'>ABC Company Articles</h1>
         <div>
           <Switch>
             <Route
               exact
               path='/'
-              render={props => <MainPageImage article={this.state.articles} {...props} />}
+              render={props => (
+                <MainPageImage
+                  article={articles}
+                  title={title}
+                  body={body}
+                  {...props}
+                />
+              )}
             />
             <Route
               exact

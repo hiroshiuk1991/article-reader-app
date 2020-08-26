@@ -4,24 +4,15 @@ import TextField from '@material-ui/core/TextField'
 
 import Article from './Article'
 
-const MainPageImage = ({ article }) => {
+const MainPageImage = ({ article, title, body }) => {
   const [articleButton, setArticleButton] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
-  
+
   const onClick = () => setArticleButton(true)
 
-
-  //  const updateSearchTerm = event => {
-  //   setSearchTerm(
-  //      event.target.value
-  //   );
-  // };
-
-   let filteredArticles = article.filter(
-      (article) => {
-        return article.title.indexOf(searchTerm) !== -1
-      }
-    ) 
+  let filteredArticles = article.filter(article => {
+    return article.title.indexOf(searchTerm) !== -1
+  })
 
   return (
     <div className='app-intro'>
@@ -35,13 +26,19 @@ const MainPageImage = ({ article }) => {
           Create New Article
         </Button>
       ) : (
-        <Article />
+        <Article title={title} body={body} />
       )}
 
-      <TextField label='Search an Article...' variant='outlined' onChange={event => setSearchTerm(event.target.value)} />
+      <TextField
+        label='Search an Article...'
+        variant='outlined'
+        onChange={event => setSearchTerm(event.target.value)}
+      />
       <div>
-        {filteredArticles.map((eachArticle) =>  (
-            <li key={eachArticle.id}>{eachArticle.title} : {eachArticle.body}</li>
+        {filteredArticles.map(eachArticle => (
+          <li key={eachArticle.id}>
+            <strong>Title: {eachArticle.title} </strong> -  <i>{eachArticle.body}</i>
+          </li>
         ))}
       </div>
     </div>
