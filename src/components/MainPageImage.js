@@ -6,8 +6,22 @@ import Article from './Article'
 
 const MainPageImage = ({ article }) => {
   const [articleButton, setArticleButton] = useState(false)
-
+  const [searchTerm, setSearchTerm] = useState('')
+  
   const onClick = () => setArticleButton(true)
+
+
+  //  const updateSearchTerm = event => {
+  //   setSearchTerm(
+  //      event.target.value
+  //   );
+  // };
+
+   let filteredArticles = article.filter(
+      (article) => {
+        return article.title.indexOf(searchTerm) !== -1
+      }
+    ) 
 
   return (
     <div className='app-intro'>
@@ -24,11 +38,11 @@ const MainPageImage = ({ article }) => {
         <Article />
       )}
 
-      <TextField label='Search an Article...' variant='outlined' />
+      <TextField label='Search an Article...' variant='outlined' onChange={event => setSearchTerm(event.target.value)} />
       <div>
-        <ul>{article.map((eachArticle) =>  (
-            <li key={eachArticle.id}>{eachArticle.title}</li>
-        ))}</ul>
+        {filteredArticles.map((eachArticle) =>  (
+            <li key={eachArticle.id}>{eachArticle.title} : {eachArticle.body}</li>
+        ))}
       </div>
     </div>
   )

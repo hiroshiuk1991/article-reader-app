@@ -10,6 +10,7 @@ import References from './References'
 export default class MainContainer extends Component {
   state = {
     articles: [],
+    searchTerm: ""
   }
 
   componentDidMount () {
@@ -18,10 +19,23 @@ export default class MainContainer extends Component {
       .then(allArticles => {
         this.setState({articles: allArticles})
       })
-      
     }
 
+  // updateSearchTerm = event => {
+  //   this.setState({
+  //     searchTerm: event.target.value
+  //   });
+  // };
+
+
+
   render () {
+    // let filteredArticles = this.props.articles.filter(
+    //   (article) => {
+    //     return article.title.indexOf(this.state.search) !== -1
+    //   }
+    // ) 
+
     return (
       <BrowserRouter>
         <NavBar />
