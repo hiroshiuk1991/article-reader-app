@@ -9,10 +9,10 @@ const NavBar = () => {
           Homepage
         </NavLink>
         <NavLink to='/about' exact className='link'>
-          About Us
+          About 
         </NavLink>
         <NavLink to='/ref' exact className='link'>
-          Ref
+          Refrences
         </NavLink>
       </div>
     </div>

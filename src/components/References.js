@@ -2,7 +2,7 @@ import React from 'react';
 
 const References = () => {
     return (
-        <div className="front-image">
+        <div className="web-links">
             <ul>
                 <li>bbc</li>
                 <li>bbc</li>

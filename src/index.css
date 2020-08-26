@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.navdiv {
+  text-align: center;
+}
+
+.link {
+  text-align: center;
+  padding: 30px;
+  font-size: 50px;
+  font-family: 'Georgia', sans-serif;
+  color: #cc0000;
+}
+
+.article-title {
+  text-align: center;
+  font-size: 95px;
+  font-family: 'Georgia', sans-serif;
+  color: #cc0000;
+}
+
+.web-links {
+  font-family: 'Georgia', sans-serif;
+  font-size: 60px;
+  padding-left: 60px;
+}
+
+.about {
+  font-family: 'Georgia', sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+.app-intro {
+  font-family: 'Georgia', sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+.search-field {
+      width: '45ch',
+
+}
