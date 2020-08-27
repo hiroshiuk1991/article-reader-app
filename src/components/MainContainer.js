@@ -5,6 +5,7 @@ import AboutUs from './AboutUs'
 import NavBar from './NavBar'
 import MainPageImage from './MainPageImage'
 import References from './References'
+import EditArticle from './EditArticle'
 
 const articlesUrl = 'http://localhost:3000/articles'
 
@@ -14,7 +15,8 @@ export default class MainContainer extends Component {
     searchTerm: '',
     title: '',
     body: '',
-    curTime: new Date().toLocaleString()
+    curTime: new Date().toLocaleString(),
+    // selectedArticle: {}
   }
 
   componentDidMount () {
@@ -25,15 +27,11 @@ export default class MainContainer extends Component {
       })
   }
 
-  // createArticle = article => {
-  //   API.post(articlesUrl, {
-  //     article: {
-  //       title: article.title,
-  //       body: article.body,
-  //       date: this.state.curTime
-  //     }
-  //   })
+  // selectedArticle = articleObj => {
+  //   this.setState({ selectedArticle: articleObj })
+  //   console.log(this.state.selectedArticle)
   // }
+
 
   render () {
     const { articles, title, body } = this.state
@@ -52,6 +50,7 @@ export default class MainContainer extends Component {
                   article={articles}
                   title={title}
                   body={body}
+                  selectedArticle={this.selectedArticle}
                   {...props}
                 />
               )}
@@ -65,6 +64,11 @@ export default class MainContainer extends Component {
               exact
               path='/ref'
               render={props => <References {...props} />}
+            />
+            <Route
+              exact
+              path=''
+              render={props => <EditArticle {...props} />}
             />
           </Switch>
         </div>

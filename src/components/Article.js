@@ -18,12 +18,7 @@ export default class Article extends Component {
   submitHandler = e => {
     e.preventDefault()
     axios.post(articlesUrl, this.state)
-    .then(resp => {
-      console.log(resp)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+
   }
     
 
@@ -33,7 +28,7 @@ export default class Article extends Component {
       <div>
         <form onSubmit={this.submitHandler}>
           <label>
-            Title:
+            Updated Title:
             <input
               type='text'
               name='title'
@@ -43,7 +38,7 @@ export default class Article extends Component {
             ></input>
           </label>
           <label>
-            Article Info:
+             Updated Article Info:
             <textarea
               type='text'
               name='body'
@@ -52,7 +47,7 @@ export default class Article extends Component {
               onChange={this.changeHandler}
             ></textarea>
           </label>
-          <Button type='submit' variant='contained' color='secondary'>
+          <Button type='submit' variant='outlined' color='secondary'>
             Submit
           </Button>
         </form>

@@ -5,7 +5,7 @@ export default class AbousUs extends Component {
     render() {
         return(
             <div className='about'>
-            <p>About us blah blah blah etc...</p>
+            <p>About us: ABC Corporation has been around since 1945....etc </p>
             </div>
         )
     }
