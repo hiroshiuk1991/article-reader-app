@@ -49,7 +49,7 @@ export default class EditArticle extends Component {
             <input
               type='text'
               name='updatedTitletitle'
-              value={this.state.updatedTitletitle}
+              // value={this.state.updatedTitletitle}
               onChange={this.updateChangeHandler}
             ></input>
           </label>
@@ -58,7 +58,7 @@ export default class EditArticle extends Component {
             <textarea
               type='text'
               name='updatedBodybody'
-              value={this.state.updatedBodybody}
+              // `value={this.state.updatedBodybody}`
               onChange={this.updateChangeHandler}
             ></textarea>
           </label>
